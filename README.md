@@ -1,3 +1,5 @@
+[![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/badges/master/elpa/v/on.svg)](https://jcs-emacs.github.io/jcs-elpa/#/on)
+
 # on.el -- utility hooks and functions from Doom Emacs
 
 This package exposes a number of utility hooks and functions ported
