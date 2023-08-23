@@ -1,6 +1,9 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/badges/master/elpa/v/on.svg)](https://jcs-emacs.github.io/jcs-elpa/#/on)
 
 # on.el -- utility hooks and functions from Doom Emacs
+
+[![CI](https://github.com/elp-revive/on.el/actions/workflows/test.yml/badge.svg)](https://github.com/elp-revive/on.el/actions/workflows/test.yml)
 
 This package exposes a number of utility hooks and functions ported
 from Doom Emacs. The hooks make it easier to speed up Emacs startup
