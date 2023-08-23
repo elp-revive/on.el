@@ -1,20 +1,19 @@
 ;;; on.el --- Hooks for faster startup -*- lexical-binding: t; -*-
 ;;
+;; Copyright (c) 2014-2022 Henrik Lissner
 ;; Copyright (C) 2022 Alex Griffin
+;; Copyright (C) 2023 Shen, Jen-Chieh
 ;;
 ;; Author: Alex Griffin <a@ajgrf.com>
-;; Maintainer: Alex Griffin <a@ajgrf.com>
+;; Maintainer: Jen-Chieh Shen <jcs090218@gmail.com>
 ;; Version: 0.1.0
 ;; Keywords: convenience
-;; Homepage: https://gitlab.com/ajgrf/on.el
+;; Homepage: https://github.com/elp-revive/on.el
 ;; Package-Requires: ((emacs "27.1"))
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;; The MIT License (MIT)
-;;
-;; Copyright (c) 2014-2022 Henrik Lissner.
-;; Copyright (c) 2022 Alex Griffin
 ;;
 ;; Permission is hereby granted, free of charge, to any person obtaining
 ;; a copy of this software and associated documentation files (the
@@ -149,7 +148,7 @@ triggering hooks during startup."
   "Hooks run when find file."
   (when (on-funcall-fboundp #'project-current)
     (run-hooks 'on-first-project-hook)
-    (setq on-first-project-hook nil)
+    (setq on-first-project-hook nil)  ; Reset to `nil'
     (remove-hook 'find-file-hook #'on-find-file-h)))
 
 (unless noninteractive
