@@ -1,4 +1,4 @@
-(package "on.el"
+(package "on"
          "0.1.0"
          "Hooks for faster startup")
 
