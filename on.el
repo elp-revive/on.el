@@ -56,6 +56,10 @@
   "Transient hooks run before the first interactively opened buffer.")
 (put 'on-first-buffer-hook 'permanent-local t)
 
+(defvar on-first-project-hook nil
+  "Transient hooks run before the first interactively opened file under project.")
+(put 'on-first-project-hook 'permanent-local t)
+
 (defvar on-switch-buffer-hook nil
   "A list of hooks run after changing the current buffer.")
 
@@ -67,6 +71,10 @@
 
 (defvar on-init-ui-hook nil
   "List of hooks to run when the UI has been initialized.")
+
+(defun on-funcall-fboundp (fnc &rest args)
+  "Call FNC with ARGS if exists."
+  (when (fboundp fnc) (if args (funcall fnc args) (funcall fnc))))
 
 (defun on-run-hook-on (hook-var trigger-hooks)
   "Configure HOOK-VAR to be invoked exactly once when any of the TRIGGER-HOOKS
@@ -137,10 +145,19 @@ triggering hooks during startup."
 ;; once, when the scratch/dashboard buffer is first displayed.
 (add-hook 'window-buffer-change-functions #'on-init-ui-h -100)
 
+(defun on-find-file-h ()
+  "Hooks run when find file."
+  (when (on-funcall-fboundp #'project-current)
+    (run-hooks 'on-first-project-hook)
+    (setq on-first-project-hook nil)
+    (remove-hook 'find-file-hook #'on-find-file-h)))
+
 (unless noninteractive
   (on-run-hook-on 'on-first-buffer-hook '(find-file-hook on-switch-buffer-hook))
   (on-run-hook-on 'on-first-file-hook   '(find-file-hook dired-initial-position-hook))
-  (on-run-hook-on 'on-first-input-hook  '(pre-command-hook)))
+  (on-run-hook-on 'on-first-input-hook  '(pre-command-hook))
+
+  (add-hook 'find-file-hook #'on-find-file-h))
 
 (provide 'on)
 ;;; on.el ends here
