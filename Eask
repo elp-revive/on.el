@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "on"
          "0.1.0"
          "Hooks for faster startup")
