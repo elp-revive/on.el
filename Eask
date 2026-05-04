@@ -1,7 +1,7 @@
 ;; -*- mode: eask; lexical-binding: t -*-
 
 (package "on"
-         "0.1.0"
+         "0.2.0"
          "Hooks for faster startup")
 
 (website-url "https://github.com/elp-revive/on.el")
