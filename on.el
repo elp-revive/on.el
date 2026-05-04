@@ -6,7 +6,7 @@
 ;;
 ;; Author: Alex Griffin <a@ajgrf.com>
 ;; Maintainer: Jen-Chieh Shen <jcs090218@gmail.com>
-;; Version: 0.1.0
+;; Version: 0.2.0
 ;; Keywords: convenience
 ;; Homepage: https://github.com/elp-revive/on.el
 ;; Package-Requires: ((emacs "27.1"))
